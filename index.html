@@ -1,41 +1,28 @@
+
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Direct Hours Forecast</title>
+  <meta charset="UTF-8" />
+  <title>Direct Hours Forecast Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
+  <script src="forecast.js" defer></script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f8ff;
-      color: #333;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-    a:hover {
-      background-color: #45a049;
-    }
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    canvas { max-width: 1000px; }
+    #controls { margin-bottom: 10px; }
   </style>
 </head>
 <body>
-  <h1>Direct Hours Forecast 預測頁面</h1>
-  <p>歡迎來到我的預測模型展示頁！點下面連結查看預測結果：</p>
-  
-  <a href="https://example.com" target="_blank">👉 點我看預測結果</a>
-
-  <p style="margin-top: 40px; font-size: 0.9em;">© 2025 Rebecca Tang</p>
+  <h2>Direct Hours Forecast Dashboard</h2>
+  <div id="controls">
+    Region:
+    <select id="regionSelect"></select>
+    Month Range:
+    <input type="range" id="monthSlider" min="0" max="7" value="7" />
+    <span id="monthLabel">Jan–Aug</span>
+    <button id="downloadBtn">📥 Download CSV</button>
+  </div>
+  <canvas id="forecastChart" height="400"></canvas>
 </body>
 </html>
-
